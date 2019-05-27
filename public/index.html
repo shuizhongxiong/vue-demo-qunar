@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>vue-demo-qunar</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but vue-demo-qunar doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>vue-demo-qunar</title>
+  <script type="text/javascript">
+    (function () {
+      var b = document.documentElement,
+        a = function () {
+          var a = b.getBoundingClientRect().width;
+          var a = a < 640 ? a : 640;
+          b.style.fontSize = (0.133 * a) + "px";
+        },
+        c = null;
+      window.addEventListener("resize",
+        function () {
+          clearTimeout(c);
+          c = setTimeout(a, 300);
+        });
+      a();
+    })();
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but vue-demo-qunar doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
 </html>
