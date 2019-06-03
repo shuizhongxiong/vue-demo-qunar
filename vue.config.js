@@ -15,7 +15,7 @@ module.exports = {
           '^/api': resolve('/mock')
         }
       }
-    },
+    }
   },
   configureWebpack: {
     resolve: {

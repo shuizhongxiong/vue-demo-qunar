@@ -26,11 +26,11 @@ export default {
     HomeWeekend
   },
   methods: {
-    getHomeInfo() {
+    getHomeInfo () {
       axios.get('/api/index.json')
         .then(this.getHomeInfoSucc)
     },
-    getHomeInfoSucc(res) {
+    getHomeInfoSucc (res) {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
@@ -46,7 +46,8 @@ export default {
       swiperList: [],
       iconList: [],
       recommendList: [],
-      weekendList: []
+      weekendList: [],
+      asdfds: 123
     }
   },
   mounted () {
@@ -54,8 +55,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
-
