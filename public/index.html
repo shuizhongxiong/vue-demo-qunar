@@ -14,7 +14,8 @@
         a = function () {
           var a = b.getBoundingClientRect().width;
           var a = a < 640 ? a : 640;
-          b.style.fontSize = (0.133 * a) + "px";
+          f = (0.133 * a);
+          b.style.fontSize = f + "px";
         },
         c = null;
       window.addEventListener("resize",
@@ -23,6 +24,12 @@
           c = setTimeout(a, 300);
         });
       a();
+      window.px2rem = function (px) {
+        return +(px / f).toFixed(2);
+      }
+      window.rem2px = function (rem) {
+        return +(rem * f).toFixed(2);
+      }
     })();
   </script>
 </head>

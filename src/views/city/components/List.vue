@@ -5,27 +5,33 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{this.city}}</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hotCities" :key="item.id">
+          <div
+            class="button-wrapper"
+            v-for="item of hotCities"
+            :key="item.id"
+            @click="handleCityClick(item.name)"
+          >
             <div class="button">{{ item.name }}</div>
           </div>
           <div></div>
         </div>
       </div>
-      <div class="area"
-        v-for="(item, key) of cities"
-        :key="key"
-        :ref="key"
-      >
+      <div class="area" v-for="(item, key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="child of item" :key="child.id">{{child.name}}</div>
+          <div
+            class="item border-bottom"
+            v-for="child of item"
+            :key="child.id"
+            @click="handleCityClick(child.name)"
+          >{{child.name}}</div>
         </div>
       </div>
     </div>
@@ -34,6 +40,7 @@
 
 <script>
 import BScroller from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'CityList',
@@ -42,11 +49,8 @@ export default {
     hotCities: Array,
     letter: String
   },
-  mounted () {
-    this.$nextTick(() => {
-      this.scroll = new BScroller(this.$refs.wrapper)
-      console.log(this.scroll)
-    })
+  computed: {
+    ...mapState(['city'])
   },
   watch: {
     letter (newVal) {
@@ -55,6 +59,18 @@ export default {
         this.scroll.scrollToElement(element)
       }
     }
+  },
+  methods: {
+    handleCityClick (city) {
+      this.changeCity(city)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.scroll = new BScroller(this.$refs.wrapper)
+    })
   }
 }
 </script>
