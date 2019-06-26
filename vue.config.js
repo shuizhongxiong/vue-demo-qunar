@@ -23,5 +23,8 @@ module.exports = {
         'styles': resolve('src/assets/styles')
       }
     }
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/vue-demo-qunar/dist/'
+    : '/'
 }

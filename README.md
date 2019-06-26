@@ -1,5 +1,7 @@
 # vue-demo-qunar
 
+## Demo <https://shuizhongxiong.github.io/vue-demo-qunar/dist/>
+
 ## Project setup
 ```
 yarn install
