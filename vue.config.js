@@ -4,15 +4,16 @@ const path = require('path')
 function resolve (dir) {
   return path.resolve(__dirname, dir)
 }
+const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: isProduction ? 'https://shuizhongxiong.github.io' : 'http://localhost:8080',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': resolve('/mock')
+          '^/api': isProduction ? resolve('/vue-demo-qunar/dist/mock') : resolve('/mock')
         }
       }
     }
@@ -20,11 +21,11 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        'styles': resolve('src/assets/styles')
+        'styles': resolve('src/assets/styles'),
+        'images': resolve('src/assets/images')
       }
     }
   },
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/vue-demo-qunar/dist/'
-    : '/'
+  publicPath: isProduction ? '/vue-demo-qunar/dist/' : '/',
+  productionSourceMap: false
 }
