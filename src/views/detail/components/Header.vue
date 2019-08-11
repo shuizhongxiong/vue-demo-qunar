@@ -22,34 +22,34 @@
 
 <script>
 export default {
-  name: 'DetailHeader',
-  data () {
-    return {
-      showAbs: true,
-      opacityStyle: {
-        opacity: 0
-      }
-    }
-  },
-  methods: {
-    handleScroll () {
-      const top = document.documentElement.scrollTop
-      if (top > 60) {
-        let opacity = top / 140
-        opacity = opacity > 1 ? 1 : opacity
-        this.opacityStyle = { opacity }
-        this.showAbs = false
-      } else {
-        this.showAbs = true
-      }
-    }
-  },
-  mounted () {
-    window.addEventListener('scroll', this.handleScroll)
-  },
-  unmounted () {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
+	name: 'DetailHeader',
+	data () {
+		return {
+			showAbs: true,
+			opacityStyle: {
+				opacity: 0
+			}
+		}
+	},
+	methods: {
+		handleScroll () {
+			const top = document.documentElement.scrollTop
+			if (top > 60) {
+				let opacity = top / 140
+				opacity = opacity > 1 ? 1 : opacity
+				this.opacityStyle = { opacity }
+				this.showAbs = false
+			} else {
+				this.showAbs = true
+			}
+		}
+	},
+	mounted () {
+		window.addEventListener('scroll', this.handleScroll)
+	},
+	unmounted () {
+		window.removeEventListener('scroll', this.handleScroll)
+	}
 }
 </script>
 
@@ -62,7 +62,7 @@ export default {
     width: .8rem
     height: .8rem
     line-height: .8rem
-    border-radius: .4rem
+    border-radius: 50%
     text-align: center
     background: rgba(0, 0, 0, .8)
     .header-abs-back

@@ -16,30 +16,30 @@
 
 <script>
 export default {
-  name: 'CommonGallary',
-  props: {
-    imgs: {
-      type: Array,
-      default () {
-        return []
-      }
-    }
-  },
-  data () {
-    return {
-      swiperOptions: {
-        pagination: '.swiper-pagination',
-        paginationType: 'fraction',
-        observeParents: true,
-        observer: true
-      }
-    }
-  },
-  methods: {
-    handleGallaryClick () {
-      this.$emit('close')
-    }
-  }
+	name: 'CommonGallary',
+	props: {
+		imgs: {
+			type: Array,
+			default () {
+				return []
+			}
+		}
+	},
+	data () {
+		return {
+			swiperOptions: {
+				pagination: '.swiper-pagination',
+				paginationType: 'fraction',
+				observeParents: true,
+				observer: true
+			}
+		}
+	},
+	methods: {
+		handleGallaryClick () {
+			this.$emit('close')
+		}
+	}
 }
 </script>
 

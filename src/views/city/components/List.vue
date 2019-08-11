@@ -43,37 +43,37 @@ import BScroller from 'better-scroll'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
-  name: 'CityList',
-  props: {
-    cities: Object,
-    hotCities: Array,
-    letter: String
-  },
-  computed: {
-    ...mapState({
-      currentCity: 'city'
-    })
-  },
-  watch: {
-    letter (newVal) {
-      if (newVal && this.scroll) {
-        const element = this.$refs[newVal][0]
-        this.scroll.scrollToElement(element)
-      }
-    }
-  },
-  methods: {
-    handleCityClick (city) {
-      this.changeCity(city)
-      this.$router.push('/')
-    },
-    ...mapMutations(['changeCity'])
-  },
-  mounted () {
-    this.$nextTick(() => {
-      this.scroll = new BScroller(this.$refs.wrapper)
-    })
-  }
+	name: 'CityList',
+	props: {
+		cities: Object,
+		hotCities: Array,
+		letter: String
+	},
+	computed: {
+		...mapState({
+			currentCity: 'city'
+		})
+	},
+	watch: {
+		letter (newVal) {
+			if (newVal && this.scroll) {
+				const element = this.$refs[newVal][0]
+				this.scroll.scrollToElement(element)
+			}
+		}
+	},
+	methods: {
+		handleCityClick (city) {
+			this.changeCity(city)
+			this.$router.push('/')
+		},
+		...mapMutations(['changeCity'])
+	},
+	mounted () {
+		this.$nextTick(() => {
+			this.scroll = new BScroller(this.$refs.wrapper)
+		})
+	}
 }
 </script>
 
