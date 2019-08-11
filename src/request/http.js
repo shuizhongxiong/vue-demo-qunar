@@ -5,7 +5,7 @@
 import axios from 'axios'
 
 // 初始化接口请求前缀
-let baseURL = 'http://localhost:8080/mock/'
+let baseURL = 'mock/'
 if (process.env.NODE_ENV === 'production') {
 	baseURL = 'https://shuizhongxiong.github.io/vue-demo-qunar/dist/mock/'
 }
@@ -37,7 +37,6 @@ service.interceptors.request.use(
 service.interceptors.response.use(
 	response => {
 		loadingHandle(false) // hide loading
-
 		if (response.status === 200) {
 			return Promise.resolve(response)
 		} else {

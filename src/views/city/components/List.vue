@@ -71,8 +71,15 @@ export default {
 	},
 	mounted () {
 		this.$nextTick(() => {
-			this.scroll = new BScroller(this.$refs.wrapper)
+			this.scroll = new BScroller(this.$refs.wrapper, {
+				click: true
+			})
 		})
+	},
+	activated () {
+		if (this.scroll) {
+			this.scroll.scrollTo(0, 0)
+		}
 	}
 }
 </script>
