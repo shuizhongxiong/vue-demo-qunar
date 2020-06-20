@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service lint --fix && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "analyz": "vue-cli-service build --report"
@@ -13,6 +13,7 @@
     "better-scroll": "^1.15.2",
     "core-js": "^2.6.5",
     "fastclick": "^1.0.6",
+    "vconsole": "^3.3.4",
     "vue": "^2.6.10",
     "vue-awesome-swiper": "^2.6.7",
     "vue-router": "^3.0.3",

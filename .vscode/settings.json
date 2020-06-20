@@ -1,0 +1,15 @@
+{
+  "editor.tabSize": 2,
+  "javascript.preferences.quoteStyle": "single",
+  "editor.formatOnSave": false,
+  "files.autoSave": "off",
+  "vetur.validation.template": false,
+  "eslint.enable": true,
+  "eslint.run": "onType",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "cSpell.words": [
+    "Vuex"
+  ]
+}

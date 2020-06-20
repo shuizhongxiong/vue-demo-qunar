@@ -15,46 +15,46 @@
 </template>
 
 <script>
-import CityHeader from './components/Header'
-import CitySearch from './components/Search'
-import CityList from './components/List'
-import CityAlphabet from './components/Alphabet'
+import CityHeader from './components/Header';
+import CitySearch from './components/Search';
+import CityList from './components/List';
+import CityAlphabet from './components/Alphabet';
 
 export default {
-	name: 'City',
-	components: {
-		CityHeader,
-		CitySearch,
-		CityList,
-		CityAlphabet
-	},
-	data () {
-		return {
-			cities: {},
-			hotCities: [],
-			letter: ''
-		}
-	},
-	methods: {
-		getCityInfo () {
-			this.$get('city.json')
-				.then(this.handleGetCityInfoSucc)
-		},
-		handleGetCityInfoSucc (res) {
-			if (res.ret && res.data) {
-				const data = res.data
-				this.cities = data.cities
-				this.hotCities = data.hotCities
-			}
-		},
-		handleLetterChange (letter) {
-			this.letter = letter
-		}
-	},
-	mounted () {
-		this.getCityInfo()
-	}
-}
+  name: 'City',
+  components: {
+    CityHeader,
+    CitySearch,
+    CityList,
+    CityAlphabet,
+  },
+  data () {
+    return {
+      cities: {},
+      hotCities: [],
+      letter: '',
+    };
+  },
+  mounted () {
+    this.getCityInfo();
+  },
+  methods: {
+    getCityInfo () {
+      this.$get('city.json')
+        .then(this.handleGetCityInfoSucc);
+    },
+    handleGetCityInfoSucc (res) {
+      if (res.ret && res.data) {
+        const data = res.data;
+        this.cities = data.cities;
+        this.hotCities = data.hotCities;
+      }
+    },
+    handleLetterChange (letter) {
+      this.letter = letter;
+    },
+  },
+};
 </script>
 
 <style lang="stylus" scoped>

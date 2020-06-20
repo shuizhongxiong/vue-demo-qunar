@@ -18,64 +18,64 @@
 </template>
 
 <script>
-import Bscroll from 'better-scroll'
-import { mapMutations } from 'vuex'
+import BetterScroll from 'better-scroll';
+import { mapMutations } from 'vuex';
 
 export default {
-	name: 'CitySearch',
-	props: {
-		cities: Object
-	},
-	data () {
-		return {
-			keyword: '',
-			list: [],
-			timer: null
-		}
-	},
-	computed: {
-		hasNoData () {
-			return !this.list.length
-		}
-	},
-	watch: {
-		keyword () {
-			if (this.timer) {
-				clearTimeout(this.timer)
-			}
-			if (!this.keyword) {
-				this.list = []
-				return
-			}
-			this.timer = setTimeout(() => {
-				const result = []
-				for (let key in this.cities) {
-					if (this.cities.hasOwnProperty(key)) {
-						this.cities[key].forEach(d => {
-							if (
-								d.spell.indexOf(this.keyword) > -1 ||
+  name: 'CitySearch',
+  props: {
+    cities: Object,
+  },
+  data () {
+    return {
+      keyword: '',
+      list: [],
+      timer: null,
+    };
+  },
+  computed: {
+    hasNoData () {
+      return !this.list.length;
+    },
+  },
+  watch: {
+    keyword () {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      if (!this.keyword) {
+        this.list = [];
+        return;
+      }
+      this.timer = setTimeout(() => {
+        const result = [];
+        for (let key in this.cities) {
+          if (this.cities.hasOwnProperty(key)) {
+            this.cities[key].forEach(d => {
+              if (
+                d.spell.indexOf(this.keyword) > -1 ||
                 d.name.indexOf(this.keyword) > -1
-							) {
-								result.push(d)
-							}
-						})
-					}
-				}
-				this.list = result
-			}, 100)
-		}
-	},
-	methods: {
-		handleCityClick (city) {
-			this.changeCity(city)
-			this.$router.push('/')
-		},
-		...mapMutations(['changeCity'])
-	},
-	mounted () {
-		this.scroll = new Bscroll(this.$refs.search)
-	}
-}
+              ) {
+                result.push(d);
+              }
+            });
+          }
+        }
+        this.list = result;
+      }, 100);
+    },
+  },
+  mounted () {
+    this.scroll = new BetterScroll(this.$refs.search);
+  },
+  methods: {
+    handleCityClick (city) {
+      this.changeCity(city);
+      this.$router.push('/');
+    },
+    ...mapMutations(['changeCity']),
+  },
+};
 </script>
 
 <style lang="stylus" scoped>

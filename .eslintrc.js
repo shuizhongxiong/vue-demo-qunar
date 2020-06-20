@@ -1,20 +1,63 @@
 module.exports = {
-	root: true,
-	env: {
-		node: true
-	},
-	'extends': [
-		'plugin:vue/essential',
-		'@vue/standard'
-	],
-	rules: {
-		'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-		semi: ['error', 'never'],
-		indent: ['error', 'tab'],
-		'no-tabs': ['error', { allowIndentationTabs: true }]
-	},
-	parserOptions: {
-		parser: 'babel-eslint'
-	}
-}
+  root: true,
+  env: {
+    node: true,
+  },
+  'extends': [
+    'plugin:vue/essential',
+    '@vue/standard',
+  ],
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'comma-dangle': [2, 'always-multiline'],
+    'no-var': 'error',
+    'camelcase': 'off',
+    'no-extra-boolean-cast': 'off',
+    'semi': ['error', 'always'],
+    'vue/require-prop-types': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/no-reserved-keys': 'off',
+    'vue/prop-name-casing': 'off',
+    'vue/order-in-components': ['error', {
+      'order': [
+        'el',
+        'name',
+        'key',
+        'parent',
+        'functional',
+        ['delimiters', 'comments'],
+        ['components', 'directives', 'filters'],
+        'extends',
+        'mixins',
+        ['provide', 'inject'],
+        'ROUTER_GUARDS',
+        'layout',
+        'middleware',
+        'validate',
+        'scrollToTop',
+        'transition',
+        'loading',
+        'inheritAttrs',
+        'model',
+        ['props', 'propsData'],
+        'emits',
+        'setup',
+        'fetch',
+        'asyncData',
+        'data',
+        'head',
+        'computed',
+        'watch',
+        'watchQuery',
+        'LIFECYCLE_HOOKS',
+        'methods',
+        ['template', 'render'],
+        'renderError',
+      ],
+    }],
+  },
+  parserOptions: {
+    parser: 'babel-eslint',
+  },
+};

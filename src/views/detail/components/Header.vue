@@ -22,35 +22,36 @@
 
 <script>
 export default {
-	name: 'DetailHeader',
-	data () {
-		return {
-			showAbs: true,
-			opacityStyle: {
-				opacity: 0
-			}
-		}
-	},
-	methods: {
-		handleScroll () {
-			const top = document.documentElement.scrollTop
-			if (top > 60) {
-				let opacity = top / 140
-				opacity = opacity > 1 ? 1 : opacity
-				this.opacityStyle = { opacity }
-				this.showAbs = false
-			} else {
-				this.showAbs = true
-			}
-		}
-	},
-	mounted () {
-		window.addEventListener('scroll', this.handleScroll)
-	},
-	unmounted () {
-		window.removeEventListener('scroll', this.handleScroll)
-	}
-}
+  name: 'DetailHeader',
+  data () {
+    return {
+      showAbs: true,
+      opacityStyle: {
+        opacity: 0,
+      },
+    };
+  },
+  mounted () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll () {
+      // scrollingElement 兼容微信
+      const top = window.pageYOffset;
+      if (top > 60) {
+        let opacity = top / 140;
+        opacity = opacity > 1 ? 1 : opacity;
+        this.opacityStyle = { opacity };
+        this.showAbs = false;
+      } else {
+        this.showAbs = true;
+      }
+    },
+  },
+};
 </script>
 
 <style lang="stylus" scoped>

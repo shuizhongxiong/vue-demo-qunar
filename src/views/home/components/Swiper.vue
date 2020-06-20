@@ -11,25 +11,25 @@
 
 <script>
 export default {
-	name: 'HomeSwiper',
-	props: {
-		list: Array
-	},
-	data () {
-		return {
-			swiperOption: {
-				pagination: '.swiper-pagination',
-				loop: true,
-				autoplay: 3000
-			}
-		}
-	},
-	computed: {
-		showSwiper () {
-			return this.list.length
-		}
-	}
-}
+  name: 'HomeSwiper',
+  props: {
+    list: Array,
+  },
+  data () {
+    return {
+      swiperOption: {
+        pagination: '.swiper-pagination',
+        loop: true,
+        autoplay: 3000,
+      },
+    };
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length;
+    },
+  },
+};
 </script>
 
 <style lang="stylus" scoped>

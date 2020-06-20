@@ -21,11 +21,11 @@
 
 <script>
 export default {
-	name: 'HomeWeekend',
-	props: {
-		list: Array
-	}
-}
+  name: 'HomeWeekend',
+  props: {
+    list: Array,
+  },
+};
 </script>
 
 <style lang="stylus" scoped>

@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">{{this.currentCity}}</div>
+            <div class="button">{{currentCity}}</div>
           </div>
         </div>
       </div>
@@ -39,49 +39,49 @@
 </template>
 
 <script>
-import BScroller from 'better-scroll'
-import { mapState, mapMutations } from 'vuex'
+import BetterScroller from 'better-scroll';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
-	name: 'CityList',
-	props: {
-		cities: Object,
-		hotCities: Array,
-		letter: String
-	},
-	computed: {
-		...mapState({
-			currentCity: 'city'
-		})
-	},
-	watch: {
-		letter (newVal) {
-			if (newVal && this.scroll) {
-				const element = this.$refs[newVal][0]
-				this.scroll.scrollToElement(element)
-			}
-		}
-	},
-	methods: {
-		handleCityClick (city) {
-			this.changeCity(city)
-			this.$router.push('/')
-		},
-		...mapMutations(['changeCity'])
-	},
-	mounted () {
-		this.$nextTick(() => {
-			this.scroll = new BScroller(this.$refs.wrapper, {
-				click: true
-			})
-		})
-	},
-	activated () {
-		if (this.scroll) {
-			this.scroll.scrollTo(0, 0)
-		}
-	}
-}
+  name: 'CityList',
+  props: {
+    cities: Object,
+    hotCities: Array,
+    letter: String,
+  },
+  computed: {
+    ...mapState({
+      currentCity: 'city',
+    }),
+  },
+  watch: {
+    letter (newVal) {
+      if (newVal && this.scroll) {
+        const element = this.$refs[newVal][0];
+        this.scroll.scrollToElement(element);
+      }
+    },
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.scroll = new BetterScroller(this.$refs.wrapper, {
+        click: true,
+      });
+    });
+  },
+  activated () { // 被 keep-alive 缓存的组件激活时调用。
+    if (this.scroll) {
+      this.scroll.scrollTo(0, 0);
+    }
+  },
+  methods: {
+    handleCityClick (city) {
+      this.changeCity(city);
+      this.$router.push('/');
+    },
+    ...mapMutations(['changeCity']),
+  },
+};
 </script>
 
 <style lang="stylus" scoped>
